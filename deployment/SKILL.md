@@ -29,13 +29,15 @@ Run the deploy command. Make sure you do this carefully and check things.
 
 The script will print progress to stdout. Watch it.
 
+For staged rollout strategies (e.g., canary or blue/green deployments), see [STAGED_ROLLOUTS.md](STAGED_ROLLOUTS.md).
+
 ## Step 3: Validate post-deploy
 
 After the deploy completes, validate:
 
-1. The new pods/instances are reporting healthy in the orchestrator
-2. The application's `/health` endpoint returns 200 within 30 seconds
-3. The error rate dashboard shows no spike (compare last 5 min vs prior hour)
+1. The new pods/instances are reporting healthy in the orchestrator (e.g., `kubectl get pods` shows all pods in `Running` state)
+2. The application's `/health` endpoint returns 200 within 30 seconds (e.g., `curl -o /dev/null -sw '%{http_code}' https://<host>/health`)
+3. The error rate dashboard shows no spike (compare last 5 min vs prior hour; abort if error rate increases by more than 10%)
 4. Latency p99 is within 10% of the pre-deploy baseline
 
 ## Rollback
@@ -46,8 +48,4 @@ If validation fails, roll back using stuff. Use the previous release tag.
 ./deploy.sh prod --rollback
 ```
 
-Confirm rollback completes within the same validation checks above.
-
-## Notes
-
-Generally a good idea to communicate with the team before and after.
+After rollback completes, re-run all four validation checks above to confirm the previous version is stable.
