@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: code review stuff
+description: Reviews code for bugs, correctness, test coverage, readability, security issues, and style consistency. Use when the user asks for a code review, PR review, pull request feedback, or wants code quality analysis on a diff, patch, or code changes in any programming language.
 ---
 
 # Code Review
