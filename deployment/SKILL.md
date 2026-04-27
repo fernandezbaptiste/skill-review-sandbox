@@ -19,7 +19,7 @@ Before any deploy, confirm the following are true:
 
 If any item fails, do not proceed — fix the underlying issue first.
 
-## Step 2: Run the deploy
+## Step 2: Staged rollouts and feature flags
 
 Run the deploy command. Make sure you do this carefully and check things.
 
