@@ -1,6 +1,6 @@
 ---
 name: incident-response
-description: helps with incidents
+description: Manages production incident response workflows from initial triage through postmortem. Guides responders through alert acknowledgment, mitigation, status communication, and follow-up. Use when the user mentions outages, service degradation, on-call pages, incident response, postmortems, error rate spikes, latency issues, or on-call escalation. Covers rollback decisions, stakeholder updates, and structured post-incident review.
 ---
 
 # Incident Response
@@ -27,7 +27,7 @@ Don't worry about root cause yet. Mitigation comes first.
 
 ## Step 3: Communicate
 
-Post status updates every 15 minutes in the incident channel and on the public status page:
+Post status updates every 15 minutes in the incident channel and on the public status page. Use this template (save to a shared runbook file such as `STATUS_UPDATE_TEMPLATE.md` for team customization):
 
 - Current impact (e.g., "10% of API requests failing")
 - What's been tried so far
@@ -37,4 +37,24 @@ Post status updates every 15 minutes in the incident channel and on the public s
 
 When the incident is contained, do stuff to follow up. Things like writing a postmortem, scheduling a review, etc.
 
-Remember to be nice to people who were involved.
+**Immediate (within 1 hour of resolution):**
+- [ ] Post an all-clear message in the incident channel and on the status page
+- [ ] Record the incident timeline (key events, decisions, and actors) while fresh
+- [ ] Assign a postmortem owner
+
+**Short-term (within 3 business days):**
+- [ ] Schedule the postmortem review meeting
+- [ ] Draft the postmortem using `POSTMORTEM_TEMPLATE.md` (create this file if it does not exist; see outline below)
+- [ ] Identify and file action items in the issue tracker with owners and due dates
+
+**Postmortem outline** (extract to `POSTMORTEM_TEMPLATE.md` for reuse):
+- **Summary:** One-paragraph description of the incident and its impact
+- **Timeline:** Chronological list of events from first alert to resolution
+- **Root Cause:** What actually caused the issue
+- **Contributing Factors:** What made detection or resolution harder
+- **Action Items:** Specific, assigned, time-bound follow-up tasks
+
+**Review meeting checklist:**
+- Walk through the timeline without blame
+- Validate that each action item is concrete and assigned
+- Confirm on-call runbooks or alerts need updating based on this incident
