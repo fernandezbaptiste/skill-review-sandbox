@@ -1,0 +1,53 @@
+---
+name: deployment
+description: helps with deploys
+---
+
+# Deployment
+
+Use this skill when a user asks about deploying a service, rolling out a release, or managing a staged rollout to production.
+
+## Step 1: Verify pre-deploy checklist
+
+Before any deploy, confirm the following are true:
+
+- The PR has been reviewed and approved by at least one peer
+- CI is green on the merge commit (build, tests, lint, type-check)
+- Database migrations, if any, have been reviewed separately
+- Feature flags for the change are configured correctly
+- An on-call engineer is available
+
+If any item fails, do not proceed — fix the underlying issue first.
+
+## Step 2: Run the deploy
+
+Run the deploy command. Make sure you do this carefully and check things.
+
+```
+./deploy.sh prod
+```
+
+The script will print progress to stdout. Watch it.
+
+## Step 3: Validate post-deploy
+
+After the deploy completes, validate:
+
+1. The new pods/instances are reporting healthy in the orchestrator
+2. The application's `/health` endpoint returns 200 within 30 seconds
+3. The error rate dashboard shows no spike (compare last 5 min vs prior hour)
+4. Latency p99 is within 10% of the pre-deploy baseline
+
+## Rollback
+
+If validation fails, roll back using stuff. Use the previous release tag.
+
+```
+./deploy.sh prod --rollback
+```
+
+Confirm rollback completes within the same validation checks above.
+
+## Notes
+
+Generally a good idea to communicate with the team before and after.
