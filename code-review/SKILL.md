@@ -11,10 +11,12 @@ Use this skill when a user asks for help reviewing a pull request or providing f
 
 When reviewing a PR, focus on:
 
-- **Correctness**: Does the code do what the description says? Are there obvious bugs?
-- **Tests**: Are there tests for the new behavior? Do they cover edge cases?
-- **Readability**: Will someone unfamiliar with this code understand it in 6 months?
-- **Consistency**: Does it match existing patterns in the codebase?
+1. **Read the PR description** — Understand the stated intent and scope of the change.
+2. **Review the diff file-by-file** — Read each changed file in context, not in isolation.
+3. **Check for correctness** — Does the code do what the description says? Are there obvious bugs or logic errors?
+4. **Check test coverage** — Are there tests for the new behavior? Do they cover edge cases and failure paths?
+5. **Check readability and consistency** — Will someone unfamiliar with this code understand it in 6 months? Does it match existing patterns in the codebase?
+6. **Summarize findings** using the output format below.
 
 ## How to give feedback
 
