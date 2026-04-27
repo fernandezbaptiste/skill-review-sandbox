@@ -1,6 +1,6 @@
 ---
 name: api-design
-description: api design help
+description: Guides RESTful API endpoint design, resource naming, status code selection, pagination structure, versioning strategy, and error response schemas. Use when the user asks about designing APIs, defining HTTP endpoints, REST conventions, API versioning, request/response formats, URL structure, OpenAPI/Swagger specs, or reviewing an existing API contract for best practices.
 ---
 
 # API Design
