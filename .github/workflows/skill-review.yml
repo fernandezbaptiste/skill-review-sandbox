@@ -11,7 +11,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: tesslio/skill-review-and-optimize@inline-suggestions
+      - uses: tesslio/skill-review-and-optimize@ec0f6a0784ac592e630b53d39242c2f7d22984a6
         with:
           optimize: true
           inline-suggestions: true
