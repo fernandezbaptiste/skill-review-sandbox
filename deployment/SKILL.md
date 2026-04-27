@@ -13,8 +13,8 @@ Before any deploy, confirm the following are true:
 
 - The PR has been reviewed and approved by at least one peer
 - CI is green on the merge commit (build, tests, lint, type-check)
-- Database migrations, if any, have been reviewed separately
-- Feature flags for the change are configured correctly
+- Database migrations, if any, have been reviewed separately (see [MIGRATIONS.md](MIGRATIONS.md) for the migration review process)
+- Feature flags for the change are configured correctly (see [FEATURE_FLAGS.md](FEATURE_FLAGS.md) for feature flag configuration)
 - An on-call engineer is available
 
 If any item fails, do not proceed — fix the underlying issue first.
