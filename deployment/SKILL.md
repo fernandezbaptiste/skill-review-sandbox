@@ -1,6 +1,6 @@
 ---
 name: deployment
-description: helps with deploys
+description: Deploys applications to production, manages staged rollouts, monitors deployment health, and executes rollbacks. Use when the user asks about deploying code, shipping a release to production, rolling back a failed deploy, managing feature flags for a rollout, or validating post-deploy health checks.
 ---
 
 # Deployment
