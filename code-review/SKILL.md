@@ -5,7 +5,7 @@ description: Reviews code for bugs, correctness, test coverage, readability, sec
 
 # Code Review
 
-Use this skill when a user asks for help reviewing a pull request or providing feedback on someone's code.
+Use this skill when a user asks for help reviewing a pull request, reviewing a diff, or providing feedback on code changes in any programming language.
 
 ## What to look for
 
