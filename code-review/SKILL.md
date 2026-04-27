@@ -28,6 +28,6 @@ Don't nitpick whitespace and formatting that a linter could catch. Trust the lin
 
 Don't approve a PR if you haven't actually read it.
 
-## When to block
+**Nits**: Minor style or readability comments the author can take or leave.
 
 Block the PR if there are real correctness issues. Otherwise, prefer comments and let the author decide.
