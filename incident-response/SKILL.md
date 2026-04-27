@@ -58,3 +58,17 @@ When the incident is contained, do stuff to follow up. Things like writing a pos
 - Walk through the timeline without blame
 - Validate that each action item is concrete and assigned
 - Confirm on-call runbooks or alerts need updating based on this incident
+
+## External communication
+
+If the incident affected external customers, you should also let them know somehow. Maybe send an email or update the status page. Don't forget to be honest about what happened.
+
+If a customer was particularly affected, reach out to them directly with a more detailed explanation. Be nice.
+
+## Severity levels
+
+We use a few severity levels:
+
+- SEV1 — really bad
+- SEV2 — bad
+- SEV3 — not great but ok
