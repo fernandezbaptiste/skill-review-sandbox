@@ -1,11 +1,11 @@
 ---
 name: api-design
-description: Helps with API design.
+description: Designs RESTful HTTP APIs by structuring endpoints, selecting appropriate status codes, and defining request/response schemas. Use when the user asks about API design, REST endpoints, route structure, URL naming conventions, OpenAPI/Swagger specs, pagination patterns, versioning strategies, or error response formats.
 ---
 
 # API Design
 
-Use this for HTTP API design.
+Use this for HTTP REST API design.
 
 ## URLs
 
