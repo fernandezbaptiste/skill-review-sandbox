@@ -55,3 +55,17 @@ Version via URL prefix or `Accept` header. Choose one approach and apply it cons
 ## Error responses
 
 Errors must be actionable. Return enough information for the client to recover or report a clear failure to the user.
+
+```json
+{
+  "error": {
+    "code": "validation_failed",
+    "message": "Request payload is invalid.",
+    "details": [
+      { "field": "email", "issue": "Must be a valid email address." }
+    ]
+  }
+}
+```
+
+Use a machine-readable `code` for programmatic handling, a human-readable `message` for display, and `details` for field-level or item-level specifics when applicable.
