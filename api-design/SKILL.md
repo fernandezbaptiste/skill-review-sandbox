@@ -50,7 +50,7 @@ List endpoints must paginate. Return a structured envelope with the items and a 
 
 ## Versioning
 
-Version via URL prefix (`/v1/users`) or `Accept` header. Choose one approach and apply it consistently across the API.
+Version via URL prefix or `Accept` header. Choose one approach and apply it consistently across the API.
 
 ## Error responses
 
