@@ -52,6 +52,17 @@ List endpoints must paginate. Return a structured envelope with the items and a 
 
 Version via URL prefix or `Accept` header. Choose one approach and apply it consistently across the API.
 
+**URL prefix** (more common, easier to test in a browser):
+```
+GET /v1/users
+GET /v1/users/{id}
+```
+
+**Accept header** (keeps URLs clean, suits content-negotiation-heavy APIs):
+```
+Accept: application/vnd.api+json;version=1
+```
+
 ## Error responses
 
 Errors must be actionable. Return enough information for the client to recover or report a clear failure to the user.
