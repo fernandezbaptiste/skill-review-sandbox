@@ -38,6 +38,16 @@ Match the code to the outcome. Avoid 200 with an error body in the response.
 
 List endpoints must paginate. Return a structured envelope with the items and a cursor or offset for the next page.
 
+```json
+{
+  "data": [...],
+  "pagination": {
+    "next_cursor": "eyJpZCI6MTAwfQ==",
+    "has_more": true
+  }
+}
+```
+
 ## Versioning
 
 Version via URL prefix (`/v1/users`) or `Accept` header. Choose one approach and apply it consistently across the API.
