@@ -1,82 +1,42 @@
 ---
 name: api-design
-description: Guides RESTful API endpoint design, resource naming, status code selection, pagination structure, versioning strategy, and error response schemas. Use when the user asks about designing APIs, defining HTTP endpoints, REST conventions, API versioning, request/response formats, URL structure, OpenAPI/Swagger specs, or reviewing an existing API contract for best practices.
+description: Helps with API design.
 ---
 
 # API Design
 
-Use this when someone is designing a new HTTP API or reviewing an existing one.
+Use this for HTTP API design.
 
-## Resources and naming
+## URLs
 
-URLs describe resources, not actions. Plural nouns for collections, singular for items.
+Use nouns. Plural for collections, singular for items.
 
-- `GET /users` — list
-- `GET /users/{id}` — single user
-- `POST /users` — create
-- `PATCH /users/{id}` — partial update
-- `DELETE /users/{id}` — remove
-
-Multi-word path segments use kebab-case (`/access-tokens`).
+- GET /users
+- GET /users/{id}
+- POST /users
+- PATCH /users/{id}
+- DELETE /users/{id}
 
 ## Status codes
 
-Match the code to the outcome. Avoid 200 with an error body in the response.
-
-- `200` successful read or update
-- `201` resource created
-- `204` deleted, no body
-- `400` malformed request
-- `401` missing or invalid auth
-- `403` authenticated but forbidden
-- `404` not found
-- `409` conflict (e.g., duplicate key)
-- `422` semantic validation error
-- `500` unexpected server error
+- 200 OK
+- 201 Created
+- 204 No Content
+- 400 Bad Request
+- 401 Unauthorized
+- 403 Forbidden
+- 404 Not Found
+- 422 Validation
+- 500 Server Error
 
 ## Pagination
 
-List endpoints must paginate. Return a structured envelope with the items and a cursor or offset for the next page.
-
-```json
-{
-  "data": [...],
-  "pagination": {
-    "next_cursor": "eyJpZCI6MTAwfQ==",
-    "has_more": true
-  }
-}
-```
+Paginate.
 
 ## Versioning
 
-Version via URL prefix or `Accept` header. Choose one approach and apply it consistently across the API.
+Use a version prefix.
 
-**URL prefix** (more common, easier to test in a browser):
-```
-GET /v1/users
-GET /v1/users/{id}
-```
+## Errors
 
-**Accept header** (keeps URLs clean, suits content-negotiation-heavy APIs):
-```
-Accept: application/vnd.api+json;version=1
-```
-
-## Error responses
-
-Errors must be actionable. Return enough information for the client to recover or report a clear failure to the user.
-
-```json
-{
-  "error": {
-    "code": "validation_failed",
-    "message": "Request payload is invalid.",
-    "details": [
-      { "field": "email", "issue": "Must be a valid email address." }
-    ]
-  }
-}
-```
-
-Use a machine-readable `code` for programmatic handling, a human-readable `message` for display, and `details` for field-level or item-level specifics when applicable.
+Return useful errors.
